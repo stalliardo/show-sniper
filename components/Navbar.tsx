@@ -11,7 +11,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='flex-between flex w-full mb-8 items-center h-20 bg-slate-800'>
+    <nav className='flex-between flex w-full mb-8 items-center h-20 bg_colour'>
 
       {/* desktop nav */}
       <div className='sm:flex hidden w-full'>

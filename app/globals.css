@@ -21,3 +21,7 @@ body {
 .blue_gradient {
   @apply bg-gradient-to-r from-blue-700 to-cyan-300 bg-clip-text text-transparent;
 }
+
+.bg_colour {
+  @apply bg-slate-800;
+}
