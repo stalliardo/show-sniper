@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import mockedData from '../../../private/responses/harry.json';
+import { MediaData } from '@types';
 
 const Media = ({ params }: { params: { id: string } }) => {
 
@@ -10,6 +12,10 @@ const Media = ({ params }: { params: { id: string } }) => {
   const searchParams = useSearchParams();
 
   const imageUrl = searchParams.get("imageUrl");
+
+  const tempData = mockedData.result[11]
+
+  console.log("tmep data = ", tempData);
 
   useEffect(() => {
     const getData = async () => {
@@ -26,15 +32,30 @@ const Media = ({ params }: { params: { id: string } }) => {
     }
 
     getData();
-
-
   }, [])
 
   return (
-    <>
-      <div className="text-white">Media + {id}</div>
-      <Image src={`https://image.tmdb.org/t/p/w200/${imageUrl}`} width={160} height={100} alt="poster" className='mx-auto rounded cursor-pointer' />
-    </>
+    <div className="text-white flex border border-red-700">
+
+      <div className='ml-14'>
+        <Image src={`https://image.tmdb.org/t/p/w500/${imageUrl}`} width={300} height={300} alt="poster" className='mx-auto rounded-lg' />
+      </div>
+
+      <div className='border border-blue-100 w-[80%] pl-10 pt-2'>
+        <h2 className='text-2xl blue_gradient'>{tempData.title} - ({tempData.year})</h2>
+        <h3 className='mt-4 text-xl'>Streaming Information:</h3>
+        <div className='mt-2 border border-emerald-200 p-4 flex justify-between'>
+          {
+            tempData.streamingInfo.gb?.map((streamData: MediaData) => (
+              <div>
+                <p>{streamData.service}</p>
+                <p className='text-yellow-400'>{streamData.streamingType} {streamData.price?.amount ? `£${streamData.price?.amount}` : ""}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
 
   )
 }
