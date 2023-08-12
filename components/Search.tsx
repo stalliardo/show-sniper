@@ -14,18 +14,17 @@ const Search = ({ onDataSet }: any) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
-        // <- TODO - reinstate
-        // Temp disbaled to prevent reaching api call limit
-        // try {
-        //     const response = await fetch(`/api/media?search=${searchText}`);
-        //     const data = await response.json();
+        
+        try {
+            const response = await fetch(`/api/media?search=${searchText}`);
+            const data = await response.json();
 
-        //     console.log("data = ", data);
-        //     setData(data);
-        //     onDataSet(data);
-        // } catch (error) {
-        //     console.log("an error happened + error: ", error);
-        // }
+            console.log("data = ", data);
+            setData(data);
+            onDataSet(data);
+        } catch (error) {
+            console.log("an error happened + error: ", error);
+        }
     }
 
     return (

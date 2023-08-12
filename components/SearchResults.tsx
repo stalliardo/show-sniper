@@ -1,19 +1,16 @@
 import MiniMediaCard from "./media/MiniMediaCard"
-import jsonData from '../private/responses/harry.json'; // <- TODO - remove
-
-console.log("jsonData = ", jsonData.result); // <- TODO - remove
 
 const SearchResults = ({ data }: any) => {
-
+    console.log("data = ", data);
     return (
         <>
             {
-                jsonData.result.length ?
+                data.results && data.results.length ?
                     <section className="bg_colour w-full h-fit rounded-lg p-8">
                         <h2 className="text-white text-3xl">Search Results</h2>
 
-                        <div className="flex justify-between gap-28 flex-wrap mt-8">
-                            {jsonData.result.map((d: any, index) => (
+                        <div className="flex justify-between gap-2 flex-wrap mt-8">
+                            {data.results.map((d: any, index: number) => (
                                 <MiniMediaCard key={index} data={d}/>
                             ))}
                         </div>

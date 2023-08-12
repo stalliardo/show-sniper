@@ -1,35 +1,29 @@
-import React from 'react'
 
+import Image from 'next/image';
 const LabelAndP = ({ label, value, classes }: { label: string, value: string | any, classes?: string }) => {
     return (
-        <div className={label !== "Genres" ? 'flex justify-between text-xl mt-4' : "text-xl mt-4"}>
-            {
-                label !== "Genres" ?
-                    <>
-                        <label className='text-gray-400'>{label}:</label>
-                        <p className={classes}>{value || "-"}</p>
-                    </> :
-                    <>
-                        <label className='text-gray-400'>{label}:</label>
+        <div className={label !== "Genres" ? 'flex justify-between text-md mt-4' : "text-md mt-4"}>
 
-                        <div className='flex'>
-                            {value.map((v: any, index: number) => (
-                                <p key={index} className={classes}>{v.name || "-"}{index < value.length - 1 ? ',' : ""}</p>
-                            ))}
-                        </div>
-                    </>
-            }
+            <label className='text-gray-400'>{label}:</label>
+            <p className={classes}>{value || "-"}</p>
         </div>
     )
 }
 
 const MiniMediaCard = ({ data }: any) => {
     return (
-        <div className='w-80 bg-slate-700 h-80 rounded-xl pt-2 px-4'>
-            <h3 className='text-center text-xl text-blue-400 mb-6 cursor-pointer hover:text-white'>{data.title}</h3>
-            <LabelAndP classes="capitalize" label="Type" value={data.type} />
-            <LabelAndP label="Year" value={data.year} />
-            <LabelAndP label="Genres" value={data.genres} />
+        <div className='w-60 bg-slate-700 h-auto rounded-xl py-2 px-4 mb-12'>
+            {
+                data.poster_path ?
+                    <Image src={`https://image.tmdb.org/t/p/w200/${data.poster_path}`} width={160} height={100} alt="poster" className='mx-auto rounded' />
+                    :
+                    <Image src={"/sniper.svg"} width={160} height={100} alt="not found" className='mx-auto h-[230px] ' />
+            }
+            <div>
+                <h3 className='text-center text-xl text-blue-400 mb-6 cursor-pointer hover:text-white'>{data.title}</h3>
+                <LabelAndP label="Released" value={data.release_date} />
+                <LabelAndP label="Rating" value={parseFloat(data.vote_average).toFixed(1)} />
+            </div>
         </div>
     )
 }
