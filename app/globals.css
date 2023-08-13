@@ -11,7 +11,7 @@ body {
 }
 
 .slate_btn {
-  @apply bg-slate-600 p-2 rounded hover:bg-slate-500 border border-green-500;
+  @apply bg-slate-600 p-2 rounded hover:bg-slate-500 cursor-pointer;
 }
 
 .slate_btn:disabled {
@@ -20,4 +20,12 @@ body {
 
 .blue_gradient {
   @apply bg-gradient-to-r from-blue-700 to-cyan-300 bg-clip-text text-transparent;
+}
+
+.bg_colour {
+  @apply bg-slate-800;
+}
+
+.stream_info_open {
+  @apply h-[100px]
 }
