@@ -1,6 +1,6 @@
 import './globals.css'
 import Navbar from '@components/Navbar'
-
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Film Sniper',
@@ -21,6 +21,7 @@ export default function RootLayout({
         <main className='app'>
           <Navbar />
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
