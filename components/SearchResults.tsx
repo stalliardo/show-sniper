@@ -1,7 +1,6 @@
 import MiniMediaCard from "./media/MiniMediaCard"
 
 const SearchResults = ({ data }: any) => {
-    console.log("data = ", data);
     return (
         <>
             {
@@ -9,14 +8,16 @@ const SearchResults = ({ data }: any) => {
                     <section className="bg_colour w-full h-fit rounded-lg p-8">
                         <h2 className="text-white text-3xl">Search Results</h2>
 
-                        <div className="flex justify-between gap-2 flex-wrap mt-8">
+                        <div className="flex items-center flex-col sm:flex-row justify-between gap-2 flex-wrap mt-8 ">
                             {data.results.map((d: any, index: number) => (
                                 <MiniMediaCard key={index} data={d}/>
                             ))}
                         </div>
 
                     </section> :
-                    <></>
+                    <div className="text-xl text-center">
+                        Sorry, we couldn't find any results.
+                    </div>
             }
         </>
     )

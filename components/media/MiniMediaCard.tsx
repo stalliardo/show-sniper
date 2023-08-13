@@ -1,7 +1,7 @@
 
+import { formatDate } from '@utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
 
 const LabelAndP = ({ label, value, classes }: { label: string, value: string | any, classes?: string }) => {
     return (
@@ -13,12 +13,10 @@ const LabelAndP = ({ label, value, classes }: { label: string, value: string | a
     )
 }
 
-
 const MiniMediaCard = ({ data }: any) => {
     const router = useRouter();
 
     const handleMediaClicked = () => {
-        console.log("media clocked = ", data);
         router.push(`/media/${data.id}?imageUrl=${data.poster_path}`)
     }
 
@@ -32,7 +30,7 @@ const MiniMediaCard = ({ data }: any) => {
             }
             <div>
                 <h3 className='text-center text-xl text-blue-400 mb-6 cursor-pointer hover:text-white' onClick={handleMediaClicked}>{data.title}</h3>
-                <LabelAndP label="Released" value={data.release_date} />
+                <LabelAndP label="Released" value={formatDate(data.release_date)} />
                 <LabelAndP label="Rating" value={parseFloat(data.vote_average).toFixed(1)} />
             </div>
         </div>
