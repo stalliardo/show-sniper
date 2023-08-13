@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 html {
-  height: 100%;
+  height: 100vh;
 }
 body {
-  height: 100%;
+  margin: 0; 
+  height: 100vh; 
   background: linear-gradient(to bottom, #000340, #00011c);
+  background-attachment: fixed; 
+  overflow-y: auto;
 }
 
 .slate_btn {

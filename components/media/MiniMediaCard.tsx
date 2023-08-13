@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-
 const LabelAndP = ({ label, value, classes }: { label: string, value: string | any, classes?: string }) => {
     return (
         <div className={label !== "Genres" ? 'flex justify-between text-md mt-4' : "text-md mt-4"}>
@@ -13,12 +12,10 @@ const LabelAndP = ({ label, value, classes }: { label: string, value: string | a
     )
 }
 
-
 const MiniMediaCard = ({ data }: any) => {
     const router = useRouter();
 
     const handleMediaClicked = () => {
-        console.log("media clocked = ", data);
         router.push(`/media/${data.id}?imageUrl=${data.poster_path}`)
     }
 

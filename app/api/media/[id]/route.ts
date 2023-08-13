@@ -14,8 +14,6 @@ export const GET = async (request: Request, {params}: {params: {id: string}}) =>
         const response = await fetch(url, options);
         const data = await response.json();
         
-        console.log("data from be = ", data.result);
-
         return new Response(JSON.stringify(data) ,{status: 200} );
     } catch (error) {
         return new Response("Could not load the media", { status: 200});

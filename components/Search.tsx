@@ -14,12 +14,10 @@ const Search = ({ onDataSet }: any) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
-        
         try {
             const response = await fetch(`/api/media?search=${searchText}`);
             const data = await response.json();
 
-            console.log("data = ", data);
             setData(data);
             onDataSet(data);
         } catch (error) {

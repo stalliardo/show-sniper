@@ -1,7 +1,6 @@
 import MiniMediaCard from "./media/MiniMediaCard"
 
 const SearchResults = ({ data }: any) => {
-    console.log("data = ", data);
     return (
         <>
             {
