@@ -48,32 +48,32 @@ const Media = ({ params }: { params: { id: string } }) => {
   if (hasLoaded) {
     if (Object.keys(data.streamingInfo).length > 0) {
       return (
-        <div className="text-white flex relative">
-          <div className='absolute right-4 top-2 slate_btn' onClick={() => { router.push("/") }}>
+        <div className="text-white flex flex-col sm:flex-row relative">
+          <div className='sm:absolute w-[140px] ml-3 mb-10 mt-[-20px] sm:right-4 sm:top-2 slate_btn' onClick={() => { router.push("/") }}>
             Back to Search
           </div>
-          <div className='ml-14'>
+          <div className='sm:ml-14 mx-auto'>
             <Image src={`https://image.tmdb.org/t/p/w500/${imageUrl}`} width={300} height={300} alt="poster" className='mx-auto rounded-lg' />
           </div>
 
-          <div className=' w-[80%] pl-10 pt-2'>
+          <div className='w-[80%] pl-10 pt-2'>
             <h2 className='text-2xl blue_gradient'>{data.title} {data.year && - (data.year)}</h2>
             <h3 className='mt-2 text-lg text-gray-400'>Included with subscription:</h3>
-            <div className='p-4 pl-6 flex gap-10'>
+            <div className='p-4 pl-6 flex flex-wrap gap-10'>
               {
                 StreamInfoItemHandler("subscription", data.streamingInfo.gb)
               }
             </div>
 
             <h3 className='mt-2 pt-2 text-lg text-gray-400  border-t border-blue-100'>Rental price:</h3>
-            <div className='p-4 pl-6 flex gap-10'>
+            <div className='p-4 pl-6 flex flex-wrap gap-10'>
               {
                 StreamInfoItemHandler("rent", data.streamingInfo.gb)
               }
             </div>
 
             <h3 className='mt-2 pt-2 text-lg text-gray-400  border-t border-blue-100'>Purhcase price:</h3>
-            <div className='p-4 pl-6 flex gap-10'>
+            <div className='p-4 pl-6 flex flex-wrap gap-10'>
               {
                 StreamInfoItemHandler("buy", data.streamingInfo.gb)
               }

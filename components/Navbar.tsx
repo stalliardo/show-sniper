@@ -21,8 +21,8 @@ const Navbar = () => {
             <h1 className='text-3xl blue_gradient ml-2'>Film Sniper</h1>
           </div>
           <div className='flex mr-10 mt-2'>
-            <p className='text-gray-400 mr-10 cursor-pointer hover:text-white' onClick={() => router.push("/about")}>About</p>
-            <p className='text-gray-400 cursor-pointer hover:text-white'>Contact</p>
+            <p className='text-gray-400 mr-10 cursor-pointer hover:text-white mt-2' onClick={() => router.push("/about")}>About</p>
+            {/* <p className='text-gray-400 cursor-pointer hover:text-white'>Contact</p> */}
           </div>
         </div>
       </div>

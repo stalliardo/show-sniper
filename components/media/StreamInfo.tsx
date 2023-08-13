@@ -5,11 +5,11 @@ interface StreamInfoProps {
     data: MediaData;
 }
 
-const StreamInfo = ({data} : StreamInfoProps) => {
+const StreamInfo = ({ data }: StreamInfoProps) => {
 
     let imgSrc: string = "/prime.jpg"
 
-    switch(data.service) {
+    switch (data.service) {
         case "apple": {
             imgSrc = "/apple.jpg";
             break;
@@ -27,10 +27,12 @@ const StreamInfo = ({data} : StreamInfoProps) => {
     return (
         <div className='group'>
             {/* <p>{data.service}</p> */}
-            <Image src={imgSrc} width={80} height={80} alt="service provider logo"/>
+            <Image src={imgSrc} width={80} height={80} alt="service provider logo" />
             <p className='text-blue-400'> {data.quality ? data.quality : ""}  {data.price?.amount ? `£${data.price?.amount}` : ""}</p>
-            <div className='opacity-0 mt-2 group-hover:opacity-100 transition-opacity duration-500 hover:text-blue-500  cursor-pointer' onClick={handleOpenSteamingSite}>
-               Watch now
+            <div className='hidden sm:inline-block'>
+                <div className='opacity-0 mt-2 group-hover:opacity-100 transition-opacity duration-500 hover:text-blue-500  cursor-pointer' onClick={handleOpenSteamingSite}>
+                    Watch now
+                </div>
             </div>
         </div>
     )

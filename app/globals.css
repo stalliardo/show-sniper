@@ -14,7 +14,7 @@ body {
 }
 
 .slate_btn {
-  @apply bg-slate-600 p-2 rounded hover:bg-slate-500 cursor-pointer;
+  @apply bg-slate-600 p-2 rounded hover:bg-slate-500 cursor-pointer text-center;
 }
 
 .slate_btn:disabled {
