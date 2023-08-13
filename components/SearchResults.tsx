@@ -10,14 +10,17 @@ const SearchResults = ({ data }: any) => {
 
                         <div className="flex items-center flex-col sm:flex-row justify-between gap-2 flex-wrap mt-8 ">
                             {data.results.map((d: any, index: number) => (
-                                <MiniMediaCard key={index} data={d}/>
+                                <MiniMediaCard key={index} data={d} />
                             ))}
                         </div>
 
                     </section> :
+
+                    Object.keys(data).length > 0 &&
                     <div className="text-xl text-center">
                         Sorry, we couldn't find any results.
                     </div>
+
             }
         </>
     )

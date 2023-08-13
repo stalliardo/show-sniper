@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Spinner from "./Spinner";
 
 function PageContainer() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     return (
