@@ -32,7 +32,7 @@ const Search = ({ onDataSet }: any) => {
             <form className='flex items-center flex-col sm:flex-row' onSubmit={handleSubmit}>
                 <input type='text' placeholder='Game of Thrones, Harry Potter etc' className='w-full sm:w-2/3  rounded p-2 bg-slate-900 sm:mr-20' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
 
-                <button type='submit' className='slate_btn w-full mt-3 sm:w-1/3 sm:mt-0' disabled={buttonDisabled}>Search</button>
+                <button type='submit' className='slate_btn border border-green-400 w-full mt-3 sm:w-1/3 sm:mt-0' disabled={buttonDisabled}>Search</button>
             </form>
         </div>
     )
