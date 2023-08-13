@@ -16,7 +16,7 @@ const SearchResults = ({ data }: any) => {
 
                     </section> :
 
-                    Object.keys(data).length > 0 &&
+                Object.keys(data).length > 0 &&
                     <div className="text-xl text-center">
                         Sorry, we couldn't find any results.
                     </div>
