@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import Spinner from "./Spinner";
 import { useSearchParams } from 'next/navigation';
 
-
 function PageContainer() {
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState<boolean>(false);

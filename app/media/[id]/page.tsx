@@ -11,6 +11,8 @@ import Spinner from '@components/Spinner';
 const StreamInfoItemHandler = (type: string, data: any) => {
   let ui: any = [];
 
+  if(!data) return <div>None found</div>;
+
   data.forEach((streamData: MediaData, index: number) => {
     if (streamData.streamingType === type) ui.push(<StreamInfo key={index} data={streamData} />)
   })
