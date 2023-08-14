@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 interface SearchProps {
@@ -9,6 +10,7 @@ const Search = ({ onDataSet, setIsLoading }: SearchProps) => {
 
     const [searchText, setSearchText] = useState<string>("");
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+    const router = useRouter();
 
     useEffect(() => {
         if(searchText.length >= 3) setButtonDisabled(false);
@@ -23,7 +25,8 @@ const Search = ({ onDataSet, setIsLoading }: SearchProps) => {
 
             const response = await fetch(`/api/media?search=${searchText}`);
             const data = await response.json();
-
+            router.replace(`?q=${searchText}`)
+            
             onDataSet(data);
         } catch (error) {
             console.log("an error happened + error: ", error);
@@ -33,7 +36,7 @@ const Search = ({ onDataSet, setIsLoading }: SearchProps) => {
     }
 
     return (
-        <div className='w-full sm:bg_colour sm:p-4 rounded'>
+        <div className='w-full sm:bg_colour rounded'>
             <form className='flex items-center flex-col sm:flex-row' onSubmit={handleSubmit}>
                 <input type='text' placeholder='Harry Potter etc' className='w-full sm:w-2/3 rounded p-2 bg-slate-600 sm:bg-slate-600 sm:mr-20' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
 
