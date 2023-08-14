@@ -49,7 +49,7 @@ const Media = ({ params }: { params: { id: string } }) => {
     if (Object.keys(data.streamingInfo).length > 0) {
       return (
         <div className="text-white flex flex-col sm:flex-row relative">
-          <div className='sm:absolute w-[140px] ml-3 mb-10 mt-[-20px] sm:right-4 sm:top-2 slate_btn' onClick={() => { router.push("/") }}>
+          <div className='sm:absolute w-[140px] ml-3 mb-10 mt-[-20px] sm:right-4 sm:top-2 slate_btn' onClick={() => { router.back()}}>
             Back to Search
           </div>
           <div className='sm:ml-14 mx-auto'>
