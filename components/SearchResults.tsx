@@ -5,10 +5,10 @@ const SearchResults = ({ data }: any) => {
         <>
             {
                 data.results && data.results.length ?
-                    <section className="bg_colour w-full h-fit rounded-lg p-8">
-                        <h2 className="text-white text-3xl">Search Results</h2>
+                    <section className="w-full h-fit rounded-lg">
+                        <h2 className="text-white text-2xl text-center sm:text-left">Search Results</h2>
 
-                        <div className="flex items-center flex-col sm:flex-row justify-between gap-2 flex-wrap mt-8 ">
+                        <div className="flex items-center flex-col sm:flex-row justify-between gap-2 flex-wrap mt-4">
                             {data.results.map((d: any, index: number) => (
                                 <MiniMediaCard key={index} data={d} />
                             ))}

@@ -11,6 +11,7 @@ body {
   background: linear-gradient(to bottom, #000340, #00011c);
   background-attachment: fixed; 
   overflow-y: auto;
+ 
 }
 
 .slate_btn {
