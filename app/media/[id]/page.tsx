@@ -48,10 +48,10 @@ const Media = ({ params }: { params: { id: string } }) => {
   }, [])
 
   if (hasLoaded) {
-    if (Object.keys(data.streamingInfo).length > 0) {
+    if (data && Object.keys(data.streamingInfo).length > 0 && Object.keys(data.streamingInfo).includes("gb")) {
       return (
         <div className="text-white flex flex-col sm:flex-row relative">
-          <div className='sm:absolute w-[140px] ml-3 mb-10 mt-[-20px] sm:right-4 sm:top-2 slate_btn' onClick={() => { router.push("/") }}>
+          <div className='sm:absolute w-[140px] ml-3 mb-10 mt-[-20px] sm:right-4 sm:top-2 slate_btn' onClick={() => { router.back()}}>
             Back to Search
           </div>
           <div className='sm:ml-14 mx-auto'>
@@ -86,11 +86,9 @@ const Media = ({ params }: { params: { id: string } }) => {
     } else {
       return (
         <>
-          <div className='text-4xl text-center text-white mt-32'>No data found for this title</div>
+          <div className='sm:text-4xl text-center text-white mt-32'>No data found for this title</div>
           <div className='mx-auto w-1/3 flex justify-center'>
-            <Link href="/">
-              <button className='slate_btn text-white border-none w-[200px] mt-8'>Back</button>
-            </Link>
+              <button className='slate_btn text-white border-none w-[200px] mt-8' onClick={() => { router.back()}}>Back</button>
           </div>
         </>
       )
