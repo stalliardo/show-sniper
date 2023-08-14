@@ -29,9 +29,10 @@ const Navbar = () => {
 
       {/* mobile nav */}
       <div className='sm:hidden mx-auto'>
-        <div className='w-fit flex items-center cursor-pointer' onClick={handleLogoClick}>
+        <div className='w-fit flex items-center cursor-pointer'>
           <Image src="/sniper.svg" width={40} height={40} alt='logo' className='object-contain ml-2' />
-          <h1 className='text-2xl blue_gradient ml-2'>Film Sniper</h1>
+          <h1 className='text-2xl blue_gradient ml-2' onClick={handleLogoClick}>Film Sniper</h1>
+          <p className='text-gray-400 mr-10 cursor-pointer hover:text-white mt-2 ml-20' onClick={() => router.push("/about")}>About</p>
         </div>
       </div>
     </nav>

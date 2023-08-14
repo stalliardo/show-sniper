@@ -21,15 +21,15 @@ const MiniMediaCard = ({ data }: any) => {
     }
 
     return (
-        <div className='w-60 bg-slate-700 h-auto rounded-xl py-2 px-4 mb-12'>
+        <div className='w-72 sm:w-60 h-auto rounded-xl py-2 px-4 mb-12'>
             {
                 data.poster_path ?
-                    <Image src={`https://image.tmdb.org/t/p/w200/${data.poster_path}`} width={160} height={100} alt="poster" className='mx-auto rounded cursor-pointer' onClick={handleMediaClicked}/>
+                    <Image src={`https://image.tmdb.org/t/p/w200/${data.poster_path}`} width={160} height={160} alt="poster" className='mx-auto rounded cursor-pointer w-full' onClick={handleMediaClicked}/>
                     :
-                    <Image src={"/sniper.svg"} width={160} height={100} alt="not found" className='mx-auto h-[230px] cursor-pointer' onClick={handleMediaClicked}/>
+                    <Image src={"/sniper.svg"} width={160} height={100} alt="not found" className='mx-auto h-[230px] cursor-pointer w-full' onClick={handleMediaClicked}/>
             }
-            <div>
-                <h3 className='text-center text-xl text-blue-400 mb-6 cursor-pointer hover:text-white' onClick={handleMediaClicked}>{data.title}</h3>
+            <div className='w-full'>
+                <h3 className='text-left truncate text-blue-400 mb-2 mt-6 cursor-pointer hover:text-white' onClick={handleMediaClicked}>{data.title}</h3>
                 <LabelAndP label="Released" value={formatDate(data.release_date)} />
                 <LabelAndP label="Rating" value={parseFloat(data.vote_average).toFixed(1)} />
             </div>
